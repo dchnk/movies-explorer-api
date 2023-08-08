@@ -27,16 +27,10 @@ mongoose.connect('mongodb://0.0.0.0:27017/bitfilmsdb', {
 });
 
 // app.use(cors({
-//   origin: ['http://denis-diachenko.nomoredomains.work', 'https://denis-diachenko.nomoredomains.work'],
+//   origin: ['http://denis-diachenko.graduate.nomoreparties.co', 'https://denis-diachenko.graduate.nomoreparties.co'],
 // }));
 
 app.use(requestLogger);
-
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
 
 app.use(limiter);
 app.use(router);
