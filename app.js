@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 require('dotenv').config();
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
@@ -26,9 +26,9 @@ mongoose.connect('mongodb://0.0.0.0:27017/bitfilmsdb', {
   console.log('db is connected');
 });
 
-// app.use(cors({
-//   origin: ['http://denis-diachenko.graduate.nomoreparties.co', 'https://denis-diachenko.graduate.nomoreparties.co'],
-// }));
+app.use(cors({
+  origin: ['http://denis-diachenko.graduate.nomoreparties.co', 'https://denis-diachenko.graduate.nomoreparties.co'],
+}));
 
 app.use(requestLogger);
 
