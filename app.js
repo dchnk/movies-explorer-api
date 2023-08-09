@@ -13,13 +13,13 @@ const router = require('./routes/index');
 
 const app = express();
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, DB_NAME = 'somedb' } = process.env;
 
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://0.0.0.0:27017/bitfilmsdb', {
+mongoose.connect(`mongodb://0.0.0.0:27017/${DB_NAME}`, {
   useNewUrlParser: true,
   autoIndex: true,
 }).then(() => {
